@@ -61,7 +61,16 @@ const AuditLog = ({ log, platforms }) => {
                 <td style={{maxWidth: '250px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}>
                   {entry.contentPreview}
                 </td>
-                <td>{entry.platform}</td>
+                <td style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
+                  <span style={{
+                    width: '8px', height: '8px', borderRadius: '50%',
+                    backgroundColor: entry.platform === 'General Social Media' ? '#3b82f6' : 
+                                     entry.platform === 'Gaming Platform' ? '#a855f7' :
+                                     entry.platform === "Children's Platform" ? '#22c55e' :
+                                     entry.platform === 'Adult Platform' ? '#ef4444' : '#6b7280'
+                  }}></span>
+                  {entry.platform}
+                </td>
                 <td><span className={`status-badge status-${entry.aiVerdict}`}>{entry.aiVerdict.replace('_', ' ')}</span></td>
                 <td>
                   <span style={{

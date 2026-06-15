@@ -49,7 +49,15 @@ const ReviewQueue = ({ queue, refreshState }) => {
               <div style={{flex: 2}}>
                 <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: '1rem'}}>
                   <span className="status-badge status-needs_review">Needs Review</span>
-                  <span style={{fontWeight: 600, color: 'var(--text-secondary)'}}>{item.platform}</span>
+                  <span style={{
+                    fontWeight: 600, fontSize: '0.8rem', padding: '0.2rem 0.6rem', borderRadius: '12px', color: '#fff',
+                    backgroundColor: item.platform === 'General Social Media' ? '#3b82f6' : 
+                                     item.platform === 'Gaming Platform' ? '#a855f7' :
+                                     item.platform === "Children's Platform" ? '#22c55e' :
+                                     item.platform === 'Adult Platform' ? '#ef4444' : '#6b7280'
+                  }}>
+                    {item.platform}
+                  </span>
                 </div>
                 
                 <div style={{backgroundColor: 'var(--bg-light)', padding: '1rem', borderRadius: '6px', marginBottom: '1rem', fontSize: '0.95rem', lineHeight: '1.5'}}>

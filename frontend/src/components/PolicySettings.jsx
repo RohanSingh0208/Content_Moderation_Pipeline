@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 const API_BASE = "http://localhost:8000";
 
+import { Info } from 'lucide-react';
+
 const categories = [
   'hate_speech', 'harassment', 'spam', 'misinformation',
   'graphic_violence', 'adult_content', 'self_harm'
@@ -13,6 +15,7 @@ const formatLabel = (str) => {
 
 const PolicySettings = ({ policies, refreshState, platforms }) => {
   const [localPolicies, setLocalPolicies] = useState(policies);
+  const [showTooltip, setShowTooltip] = useState(false);
 
   // Sync local if global changes
   React.useEffect(() => {
@@ -46,12 +49,32 @@ const PolicySettings = ({ policies, refreshState, platforms }) => {
   return (
     <div className="animate-fade-in">
       <h2>Policy Settings</h2>
-      <p style={{marginBottom: '2rem', color: 'var(--text-secondary)'}}>
-        Configure auto-remove thresholds (0-100) for each platform. 
-        <br/>• Above threshold = Auto Remove
-        <br/>• Above half threshold = Needs Review
-        <br/>• Below half threshold = Approved
-      </p>
+      <div style={{marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: '0.5rem', position: 'relative'}}>
+        <span style={{color: 'var(--text-secondary)'}}>Configure auto-remove thresholds (0-100) for each platform.</span>
+        <div 
+          onMouseEnter={() => setShowTooltip(true)} 
+          onMouseLeave={() => setShowTooltip(false)}
+          style={{cursor: 'pointer', color: 'var(--primary)', display: 'flex', alignItems: 'center'}}
+        >
+          <Info size={16} />
+        </div>
+        
+        {showTooltip && (
+          <div style={{
+            position: 'absolute', top: '100%', left: '0', marginTop: '0.5rem',
+            backgroundColor: 'var(--card-bg)', border: '1px solid var(--border-color)',
+            padding: '1rem', borderRadius: '6px', zIndex: 10,
+            boxShadow: 'var(--shadow-md)', fontSize: '0.85rem', color: 'var(--text-secondary)'
+          }}>
+            <strong style={{color: 'var(--text-primary)'}}>Routing Logic:</strong>
+            <ul style={{margin: '0.5rem 0 0 1rem', padding: 0}}>
+              <li>Above threshold = Auto Remove</li>
+              <li>Above half threshold = Needs Review</li>
+              <li>Below half threshold = Approved</li>
+            </ul>
+          </div>
+        )}
+      </div>
 
       <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '1.5rem'}}>
         {platforms.map(platform => (

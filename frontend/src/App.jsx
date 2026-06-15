@@ -50,8 +50,10 @@ function App() {
       case 'moderate':
         return <ModerateContent 
                   currentPlatform={currentPlatform} 
+                  setCurrentPlatform={setCurrentPlatform}
                   platforms={platforms}
                   refreshState={refreshState}
+                  queueCount={reviewQueue.length}
                 />;
       case 'queue':
         return <ReviewQueue 
@@ -79,14 +81,7 @@ function App() {
         queueCount={reviewQueue.length} 
       />
       <div className="main-content">
-        <Header 
-          currentPlatform={currentPlatform} 
-          setCurrentPlatform={setCurrentPlatform} 
-          platforms={platforms} 
-        />
-        <div className="page-container">
-          {renderPage()}
-        </div>
+        {renderPage()}
       </div>
     </div>
   )
