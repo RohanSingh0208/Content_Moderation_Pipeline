@@ -35,6 +35,12 @@ If a category is triggered, extract the specific substring from the content as '
 'reasoning' should be a concise one-sentence explanation of the scores.
 'confidence' is your confidence in the assessment from 0.0 to 1.0.
 
+CRITICAL — Context-Aware Analysis:
+The 'Conversation context' field below is the MOST IMPORTANT signal for your analysis. It provides real-world situational information about how the content was actually used. You MUST treat context as a high-priority override:
+- If context indicates a threat, harassment, or harmful intent, you MUST score the relevant categories HIGH (0.8+) regardless of how innocent the surface text appears or what platform it is on.
+- If context is empty or "None", rely on the platform norms and the content itself.
+- The platform name alone does NOT excuse harmful content when context explicitly contradicts it.
+
 Platform: {platform}
 Platform thresholds (auto_removed if score * 100 exceeds): {policy_str}
 Conversation context: {context if context else "None"}
