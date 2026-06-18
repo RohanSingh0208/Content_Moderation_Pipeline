@@ -1,3 +1,12 @@
+---
+title: Content Moderation Pipeline
+emoji: 🛡️
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+pinned: false
+---
+
 # 🛡️ AI-Powered Content Moderation Pipeline
 
 > A production-ready, full-stack content moderation system powered by **Groq (LLaMA 3.3-70B)** — featuring automated classification, confidence-based routing, a human review queue, explainable decisions, and per-platform policy configuration.
