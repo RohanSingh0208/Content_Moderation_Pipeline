@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ResultsCard from './ResultsCard';
 import { FileText, MessageSquare, User, ShieldCheck, RotateCcw } from 'lucide-react';
 
-const API_BASE = "http://localhost:8000";
+const API_BASE = import.meta.env.DEV ? "http://localhost:8000" : "";
 
 const ModerateContent = ({ currentPlatform, setCurrentPlatform, platforms, refreshState, queueCount }) => {
   const [content, setContent] = useState('');

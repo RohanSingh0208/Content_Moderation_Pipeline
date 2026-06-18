@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const API_BASE = "http://localhost:8000";
+const API_BASE = import.meta.env.DEV ? "http://localhost:8000" : "";
 
 import { Info } from 'lucide-react';
 

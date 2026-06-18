@@ -7,7 +7,7 @@ import AuditLog from './components/AuditLog'
 import PolicySettings from './components/PolicySettings'
 import './App.css'
 
-const API_BASE = "http://localhost:8000";
+const API_BASE = import.meta.env.DEV ? "http://localhost:8000" : "";
 
 function App() {
   const [currentPage, setCurrentPage] = useState('moderate');

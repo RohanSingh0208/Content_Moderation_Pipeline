@@ -137,3 +137,23 @@ def resolve_queue_item(item_id: int, request: ResolveRequest):
 @app.get("/audit-log")
 def get_audit_log():
     return db.audit_log
+
+# Serve React frontend in production
+import os
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+
+frontend_path = os.path.join(os.path.dirname(__file__), "..", "frontend", "dist")
+
+if os.path.exists(frontend_path):
+    app.mount("/assets", StaticFiles(directory=os.path.join(frontend_path, "assets")), name="assets")
+    
+    @app.get("/{full_path:path}")
+    def serve_frontend(full_path: str):
+        # Serve specific files if they exist in dist root (like favicon)
+        file_path = os.path.join(frontend_path, full_path)
+        if os.path.isfile(file_path):
+            return FileResponse(file_path)
+        # Otherwise serve index.html for SPA routing
+        return FileResponse(os.path.join(frontend_path, "index.html"))
+
