@@ -9,6 +9,9 @@ pinned: false
 
 # 🛡️ AI-Powered Content Moderation Pipeline
 
+## 🚀 Live Demo
+**[▶ Try it live on HuggingFace Spaces](https://abhijeet-2005-content-moderation-pipeline.hf.space)**
+
 > A production-ready, full-stack content moderation system powered by **Groq (LLaMA 3.3-70B)** — featuring automated classification, confidence-based routing, a human review queue, explainable decisions, and per-platform policy configuration.
 
 ---
@@ -130,6 +133,22 @@ Real-time per-platform policy management:
 - 4 pre-configured platforms: **Children's Platform**, **General Social Media**, **Adult Platform**, **Gaming Platform**
 - Threshold sliders (0–100) for all 7 categories per platform
 - Changes persist in backend in-memory store and immediately affect new moderation decisions
+
+---
+
+## 📸 Screenshots
+
+### Moderate Content
+![Moderate Content](https://raw.githubusercontent.com/AbhijeetPatil2005/Content_Moderation_Pipeline/main/screenshots/moderate_screenshot.png)
+
+### Human Review Queue
+![Review Queue](https://raw.githubusercontent.com/AbhijeetPatil2005/Content_Moderation_Pipeline/main/screenshots/queue_screenshot.png)
+
+### Audit Log
+![Audit Log](https://raw.githubusercontent.com/AbhijeetPatil2005/Content_Moderation_Pipeline/main/screenshots/audit_screenshot.png)
+
+### Policy Settings
+![Policy Settings](https://raw.githubusercontent.com/AbhijeetPatil2005/Content_Moderation_Pipeline/main/screenshots/policy_screenshot.png)
 
 ---
 
