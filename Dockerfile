@@ -15,7 +15,7 @@ ENV HOST=0.0.0.0
 ENV PORT=7860
 
 # Install dependencies
-COPY requirements.txt .
+COPY backend/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install uvicorn
 
